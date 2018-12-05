@@ -29,8 +29,8 @@ class Lessons():
         return les
     
     def create_lessons(self):
-        if self.holder:
-            return self.holder
+        if self.all_lessons:
+            return self.all_lessons
         holder = []
         while len(self.used_lessons) < 13:
             holder.append((self.__choose_lesson(), self.__choose_totalhours()))
