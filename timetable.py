@@ -37,18 +37,6 @@ class Lessons():
         self.all_lessons = sorted(holder, key=lambda x: x[0])
         return self.all_lessons
                           
-class Classrooms():
-    def __inir__(self):
-        self.rooms = ['room_{:0>3d}'.format(i) for i in range(18)]
-    
-    def __repr__(self):
-        return str(self.rooms)
-    
-    def choose_room(self):
-        room = self.rooms.pop()
-        self.rooms = room + self.rooms
-        return room
-
 class Professor():
     alph = [chr(i) for i in range(97, 123, 1)]
     def __init__(self, lesson):
@@ -63,15 +51,31 @@ class Professor():
         return (
                 'Prof.: {: >8s}, lesson: {: >6s}'.format(self.name, self.lesson)
                 )
-
+        
+class StudyGroups():
+    def __init__(self, name):
+        self.groups = ['group_{:0>2d}'.format(i) for i in range(1,19)]
+        
+        
+class Classrooms():
+    def __inir__(self):
+        self.rooms = ['room_{:0>3d}'.format(i) for i in range(18)]
+    
+    def __repr__(self):
+        return str(self.rooms)
+    
+    def choose_room(self):
+        room = self.rooms.pop()
+        self.rooms = room + self.rooms
+        return room
 
 class Week():
-    pass
+    def __init__(self):
+        pass
+    
+    def set_constraints(self, semester_course):
+        
 
 class Day():
-    def __init__(self, **lessons):
+    def __init__(self, lessons):
         self.lessons = lessons
-
-class StudyGroup():
-    def __init__(self, name):
-        self.name = name
